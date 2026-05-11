@@ -1,9 +1,9 @@
 #!/bin/bash
 
 source ./common.sh
-root_verification
 app_name=user
 
+root_verification
 app_setup
 nodejs_setup
 systemd_setup
