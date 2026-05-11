@@ -19,6 +19,6 @@ systemd_setup
 #     VERIFY $? "Loading data into MongoDB"
 # else
 #     echo -e "Data is already loaded ... $Y SKIPPING $N" | tee -a $LOG_FILE
-# fi
+# fi .
 
 print_time
