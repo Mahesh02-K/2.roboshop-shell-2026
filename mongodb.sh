@@ -3,7 +3,7 @@
 source ./common.sh
 root_verification
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp mongo.repo /etc/yum.repos.d/mongodb.repo
 VERIFY $? "Copying mongo repo file"
 
 dnf install mongodb-org -y &>>$LOG_FILE
