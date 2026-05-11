@@ -97,6 +97,24 @@ nodejs_setup(){
     VERIFY $? "Installing Dependencies"
 }
 
+python3_installation(){
+    dnf install python3 gcc python3-devel -y &>>$LOG_FILE
+    VERIFY $? "Installing python3"
+    pip3 install -r requirements.txt &>>$LOG_FILE
+    VERIFY $? "Installing python dependencies"
+}
+
+maven_installation(){
+    dnf install maven -y &>>$LOG_FILE
+    VERIFY $? "Installing Maven and Java"
+
+    mvn clean package &>>$LOG_FILE
+    VERIFY $? "Packaging in shipping application"
+
+    mv target/shipping-1.0.jar shipping.jar &>>$LOG_FILE
+    VERIFY $? "Moving and renaming jar file in target folder"
+}
+
 print_time(){
     END_TIME=$(date +%s)
     TOTAL_TIME=$(($END_TIME - $START_TIME))
