@@ -18,7 +18,7 @@ echo "Script started executing at : $(date)" | tee -a $LOG_FILE
 root_verification(){
     if [ $USERID -eq 0 ]
     then 
-        echo -e "You are running root access .. $G Move forward $N" | tee -a $LOG_FILE
+        echo -e "You are running with root access .. $G Move forward $N" | tee -a $LOG_FILE
     else
         echo -e "$R ERR :: $N Please run this with root access" | tee -a $LOG_FILE
         exit 1 #give other than 0 upto 127
