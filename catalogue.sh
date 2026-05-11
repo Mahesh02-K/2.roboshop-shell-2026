@@ -4,8 +4,8 @@ source ./common.sh
 app_name=catalogue
 
 root_verification
-nodejs_setup
 app_setup
+nodejs_setup
 systemd_setup
 
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
