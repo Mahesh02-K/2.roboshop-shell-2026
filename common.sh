@@ -68,6 +68,21 @@ systemd_setup(){
     VERIFY $? "Starting $app_name"
 }
 
+nginx_installation(){
+    dnf module disable nginx -y &>>$LOG_FILE
+    VERIFY $? "Disabling default nginx"
+
+    dnf module enable nginx:1.24 -y &>>$LOG_FILE
+    VERIFY $? "Enabling nginx 1.24"
+
+    dnf install nginx -y &>>$LOG_FILE
+    VERIFY $? "Installing nginx"
+
+    systemctl enable nginx &>>$LOG_FILE
+    systemctl start nginx &>>$LOG_FILE
+    VERIFY $? "Starting nginx"
+}
+
 nodejs_setup(){
     dnf module disable nodejs -y &>>$LOG_FILE
     VERIFY $? "Disabling Nodejs default version"
