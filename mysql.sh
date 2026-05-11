@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source ./common.sh
-app_name=mysql
 root_verification
 
 echo -e "$R ENTER ROOT PASSWORD TO SETUP $N" | tee -a $LOG_FILE
